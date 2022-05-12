@@ -1,2 +1,2 @@
 # qa_java
-QA Java Project
+Artem Smirnov QA Java Project
