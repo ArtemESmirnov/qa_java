@@ -18,8 +18,8 @@ public class FelineTest {
         feline = new Feline();
     }
 
-    private final int kittensNumber;
-    private final int expected;
+    private final int KITTENS_NUMBER;
+    private final int EXPECTED;
 
     @Test
     public void eatMeatShouldBeMeat() {
@@ -43,8 +43,8 @@ public class FelineTest {
     }
 
     public FelineTest(int kittensNumber, int expected) {
-        this.kittensNumber = kittensNumber;
-        this.expected = expected;
+        this.KITTENS_NUMBER = kittensNumber;
+        this.EXPECTED = expected;
     }
 
     @Parameterized.Parameters
@@ -61,6 +61,6 @@ public class FelineTest {
 
     @Test
     public void testGetKittens() {
-        assertEquals(feline.getKittens(kittensNumber), expected);
+        assertEquals(feline.getKittens(KITTENS_NUMBER), EXPECTED);
     }
 }

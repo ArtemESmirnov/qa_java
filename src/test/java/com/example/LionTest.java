@@ -30,8 +30,8 @@ public class LionTest {
     }
 
 
-    private final String sex;
-    private final boolean expected;
+    private final String SEX;
+    private final boolean EXPECTED;
 
     @Test
     public void getKittensShouldBeOne() throws Exception {
@@ -40,8 +40,8 @@ public class LionTest {
     }
 
     public LionTest(String sex, boolean expected){
-        this.sex = sex;
-        this.expected = expected;
+        this.SEX = sex;
+        this.EXPECTED = expected;
     }
 
     @Parameterized.Parameters
@@ -54,8 +54,8 @@ public class LionTest {
 
     @Test
     public void doesHaveManeTest() throws Exception {
-        Lion lion = new Lion(sex, feline);
-        assertEquals(expected, lion.doesHaveMane());
+        Lion lion = new Lion(SEX, feline);
+        assertEquals(EXPECTED, lion.doesHaveMane());
     }
 
     @Test
