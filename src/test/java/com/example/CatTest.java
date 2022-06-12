@@ -30,15 +30,11 @@ public class CatTest {
     }
 
     @Test
-    public void foodShouldBePredators() {
+    public void foodShouldBePredators() throws Exception {
         Cat realCat = new Cat(feline);
         List<String> expected = List.of("Животные", "Птицы", "Рыба");
 
-        try {
-            var got = realCat.getFood();
-            assertEquals(got, expected);
-        } catch (Exception expectedException) {
-            fail();
-        }
+        List<String> got = realCat.getFood();
+        assertEquals(got, expected);
     }
 }
