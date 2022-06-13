@@ -16,12 +16,12 @@ public class LionParametrizedTest {
     public MockitoRule mockitoRule = MockitoJUnit.rule();
     @Mock
     IFeline feline;
-    private final String SEX;
-    private final boolean EXPECTED;
+    private final String sex;
+    private final boolean expected;
 
     public LionParametrizedTest(String sex, boolean expected){
-        this.SEX = sex;
-        this.EXPECTED = expected;
+        this.sex = sex;
+        this.expected = expected;
     }
 
     @Parameterized.Parameters
@@ -29,12 +29,20 @@ public class LionParametrizedTest {
         return new Object[][] {
                 {"Самец", true},
                 {"Самка", false},
+                {"sex", false},
         };
     }
 
     @Test
-    public void doesHaveManeTest() throws Exception {
-        Lion lion = new Lion(SEX, feline);
-        assertEquals(EXPECTED, lion.doesHaveMane());
+    public void doesHaveManeTest() {
+        try{
+            Lion lion = new Lion(sex, feline);
+            assertEquals(expected, lion.doesHaveMane());
+        }
+        catch (Exception exception){
+            assertEquals("Используйте допустимые значения пола животного - " +
+                    "самей или самка", exception.getMessage());
+        }
+
     }
 }

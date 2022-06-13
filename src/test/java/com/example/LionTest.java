@@ -1,21 +1,18 @@
 package com.example;
 
 import org.junit.Before;
-import org.junit.Rule;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.Mockito;
-import org.mockito.junit.MockitoJUnit;
-import org.mockito.junit.MockitoRule;
+import org.mockito.junit.MockitoJUnitRunner;
 
 import java.util.List;
 
 import static org.junit.Assert.*;
 
+@RunWith(MockitoJUnitRunner.class)
 public class LionTest {
-
-    @Rule
-    public MockitoRule mockitoRule = MockitoJUnit.rule();
     @Mock
     IFeline feline;
 
@@ -29,17 +26,6 @@ public class LionTest {
     public void getKittensShouldBeOne() throws Exception {
         Lion lion = new Lion("Самец", feline);
         assertEquals(1, lion.getKittens());
-    }
-
-    @Test
-    public void doesHaveManeTestException() {
-        String expectedMessage = "Используйте допустимые значения пола животного - самей или самка";
-        try {
-            Lion lion = new Lion("sex", feline);
-        }
-        catch (Exception exception){
-            assertEquals(expectedMessage, exception.getMessage());
-        }
     }
 
     @Test
