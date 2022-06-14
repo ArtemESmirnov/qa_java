@@ -39,7 +39,7 @@ public class LionTest {
     }
 
     @Test
-    public void doesHaveManeShouldBeException() {
+    public void constructorUnknownSexShouldThrowException() {
         try{
             Lion lion = new Lion("sex", feline);
             Assert.fail("Expected exception was not thrown");
