@@ -29,20 +29,12 @@ public class LionParametrizedTest {
         return new Object[][] {
                 {"Самец", true},
                 {"Самка", false},
-                {"sex", false},
         };
     }
 
     @Test
-    public void doesHaveManeTest() {
-        try{
-            Lion lion = new Lion(sex, feline);
-            assertEquals(expected, lion.doesHaveMane());
-        }
-        catch (Exception exception){
-            assertEquals("Используйте допустимые значения пола животного - " +
-                    "самей или самка", exception.getMessage());
-        }
-
+    public void doesHaveManeTest() throws Exception {
+        Lion lion = new Lion(sex, feline);
+        assertEquals(expected, lion.doesHaveMane());
     }
 }

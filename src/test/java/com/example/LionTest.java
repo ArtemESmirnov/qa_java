@@ -1,5 +1,6 @@
 package com.example;
 
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -35,5 +36,18 @@ public class LionTest {
 
         List<String> got = realLion.getFood();
         assertEquals(got, expected);
+    }
+
+    @Test
+    public void doesHaveManeShouldBeException() {
+        try{
+            Lion lion = new Lion("sex", feline);
+            Assert.fail("Expected exception was not thrown");
+        }
+        catch (Exception exception){
+            assertEquals("Используйте допустимые значения пола животного - " +
+                    "самей или самка", exception.getMessage());
+        }
+
     }
 }
